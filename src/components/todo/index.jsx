@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import store from '@/redux'
+import { connect } from 'react-redux';
 import * as todoActions from '@/redux/action/todo';
 
 class Todo extends Component {
@@ -10,7 +10,8 @@ class Todo extends Component {
 
   handleAdd() {
     console.log(this.refInput.value);
-    store.dispatch(todoActions.add_todo(this.refInput.value));
+    this.props.add_todo(this.refInput.value);
+    this.refInput.value = '';
   }
 
   render() {
@@ -18,9 +19,14 @@ class Todo extends Component {
       <div>
         <input type="text" ref={input => this.refInput = input} />
         <button onClick={this.handleAdd}>添加</button>
+        {
+          this.props.todos.map( (item, index) => (
+            <li key={index}>{item}</li>
+          ))
+        }
       </div>
     )
   }
 }
 
-export default Todo;
+export default connect((state) => ({todos: state.todo}), todoActions)(Todo);
