@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import store from '@/redux';
+// import store from '@/redux';
 // import { Provider } from './lib/reactRedux/react-redux';
 // import store from './lib/reactRedux/store';
+import store from './lib/applyMiddlewares/store'
 // import App from './App'
-import Index from '@/lib/router'
+import App from './lib/applyMiddlewares'
+// import Index from '@/lib/router'
 import 'bootstrap/dist/css/bootstrap.css'
 
 import registerServiceWorker from './registerServiceWorker';
@@ -17,7 +19,7 @@ ReactDOM.render(<Provider store={store}>
     <Counter />
     <Todo />
   </div> */}
-  <Index />
+  <App />
 </Provider>, document.getElementById('root'));
 
 registerServiceWorker();
