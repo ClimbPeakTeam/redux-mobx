@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Link, Route, Redirect } from 'react-router-dom';
+import { NavLink as Link, Route } from 'react-router-dom';
 import Add from './../views/add';
 import List from './../views/list';
+import './style.scss'
 
 export default class User extends Component {
   render() {
@@ -18,9 +19,9 @@ export default class User extends Component {
         </div>
         {/* 内容--二级路由 */}
         <div className="col-md-9">
+          <Route exact path="/user" component={Add} />
           <Route exact path="/user/add" component={Add} />
           <Route path="/user/list" component={List} />
-          <Redirect to="/user/add" />
         </div>
       </div>
     )
