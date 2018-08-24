@@ -4,11 +4,12 @@ import { Provider } from 'react-redux';
 import store from '@/redux';
 // import { Provider } from './lib/reactRedux/react-redux';
 // import store from './lib/reactRedux/store';
-import App from './App'
-// import App from '@/lib/reactRedux'
+// import App from './App'
+import Index from '@/lib/router'
+import 'bootstrap/dist/css/bootstrap.css'
 
 import registerServiceWorker from './registerServiceWorker';
-require('@/config/rem');
+// require('@/config/rem');
 require('./styles/index.scss');
 
 ReactDOM.render(<Provider store={store}>
@@ -16,7 +17,7 @@ ReactDOM.render(<Provider store={store}>
     <Counter />
     <Todo />
   </div> */}
-  <App />
+  <Index />
 </Provider>, document.getElementById('root'));
 
 registerServiceWorker();
